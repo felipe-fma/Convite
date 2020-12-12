@@ -15,7 +15,7 @@ body {
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
+    -webkit-transform: -webkit-transform(-50%, -50%);
 }
 
 .mail {
@@ -72,7 +72,7 @@ body {
     -moz-transform: rotateX(0deg);
     -ms-transform: rotateX(0deg);
     -o-transform: rotateX(0deg);
-    -webkit-transform: rotateX(0deg);
+    -webkit-transform: -webkit-rotateX(0deg);
     transition: all 1s 1s ease;
     -moz-transition: all 1s 1s ease;
     -ms-transition: all 1s 1s ease;
@@ -107,7 +107,7 @@ body {
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
+    -webkit-transform: -webkit-translate(-50%, -50%);
 }
 
 .mail:hover .cover:before {
@@ -115,7 +115,7 @@ body {
     -moz-transform: rotateX(180deg);
     -ms-transform: rotateX(180deg);
     -o-transform: rotateX(180deg);
-    -webkit-transform: rotateX(180deg);
+    -webkit-transform: -webkit-rotateX(180deg);
     transition: all 1s ease;
     -moz-transition: all 1s ease;
     -ms-transition: all 1s ease;
