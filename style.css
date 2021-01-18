@@ -7,7 +7,7 @@ body {
     background: #302929;
 }
 
-body>div {
+.wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -15,10 +15,10 @@ body>div {
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
-    -webkit-transform: -webkit-transform(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
 }
 
-body>div>div {
+.mail {
     width: 300px;
     height: 200px;
     background: #ff8789;
@@ -27,9 +27,10 @@ body>div>div {
     position: relative;
     transform-style: preserve-3d;
     cursor: pointer;
+    z-index: 6;
 }
 
-body>div>div:before {
+.mail:before {
     content: "";
     position: absolute;
     top: 0;
@@ -40,10 +41,10 @@ body>div>div:before {
     border-bottom: 100px solid #ff393c;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    z-index: 5;
+    z-index: 6;
 }
 
-body>div>div:after {
+.mail:after {
     content: "";
     position: absolute;
     top: 0;
@@ -54,10 +55,10 @@ body>div>div:after {
     border-bottom: 100px solid #ff5355;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    z-index: 4;
+    z-index: 6;
 }
 
-aside:before {
+.cover:before {
     content: "";
     position: absolute;
     top: 0;
@@ -72,7 +73,7 @@ aside:before {
     -moz-transform: rotateX(0deg);
     -ms-transform: rotateX(0deg);
     -o-transform: rotateX(0deg);
-    -webkit-transform: -webkit-rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
     transition: all 1s 1s ease;
     -moz-transition: all 1s 1s ease;
     -ms-transition: all 1s 1s ease;
@@ -80,7 +81,7 @@ aside:before {
     -webkit-transition: all 1s 1s ease;
 }
 
-article {
+.letter {
     position: absolute;
     z-index: 3;
     top: 0;
@@ -96,13 +97,14 @@ article {
     -webkit-transition: all 1s ease;
 }
 
-article h1 {
-    position: absolute;
+.letter h1 {
+    position: relative;
     top: 50%;
     left: 50%;
     font-size: 80px;
     color: #798992;
     font-weight: 900;
+    z-index: 7;
     transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -110,20 +112,21 @@ article h1 {
     -webkit-transform: translate(-50%, -50%);
 }
 
-body>div>div:hover aside:before {
+.mail:hover .cover:before {
     transform: rotateX(180deg);
     -moz-transform: rotateX(180deg);
     -ms-transform: rotateX(180deg);
     -o-transform: rotateX(180deg);
-    -webkit-transform: -webkit-rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
     transition: all 1s ease;
     -moz-transition: all 1s ease;
     -ms-transition: all 1s ease;
     -o-transition: all 1s ease;
     -webkit-transition: all 1s ease;
+    z-index: -1
 }
 
-body>div>div:hover article {
+.mail:hover .letter {
     top: -80px;
     transition: all 1s 1s ease;
     -moz-transition: all 1s 1s ease;
@@ -132,8 +135,34 @@ body>div>div:hover article {
     -webkit-transition: all 1s 1s ease;
 }
 
-article img {
+.paper {
+    z-index: 8;
+    position: relative;
     width: 270px;
     height: 150px;
     border-radius: 20px;
+    transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    -webkit-transform: scale(1);
+    transition: all 0.5s 0.5s ease;
+    -moz-transition: all 0.5s 0.5s ease;
+    -ms-transition: all 0.5s 0.5s ease;
+    -o-transition: all 0.5s 0.5s ease;
+    -webkit-transition: all 0.5s 0.5s ease;
+}
+
+.mail:hover .paper {
+    transition: all 2s 2s ease;
+    -moz-transition: all 2s 2s ease;
+    -ms-transition: all 2s 2s ease;
+    -o-transition: all 2s 2s ease;
+    -webkit-transition: all 2s 2s ease;
+    transform: scale(4);
+    -moz-transform: scale(4);
+    -ms-transform: scale(4);
+    -o-transform: scale(4);
+    -webkit-transform: scale(4);
+    z-index: -1;
 }
