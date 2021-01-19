@@ -35,7 +35,6 @@ body {
     cursor: pointer;
     transform-style: preserve-3d;
     perspective: 1000px;
-    animation: wiggle 0.3s 0.2s infinite;
 }
 
 .envelope .cover {

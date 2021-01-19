@@ -31,6 +31,19 @@
     envelope.top.style.transform = "rotateX(0deg)";
     envelope.state.topRotation = 0;
 
+    let rockit = envelope.body.animate([
+        { transform: "rotate(0)" },
+        { transform: "rotate(2deg)" },
+        { transform: "rotate(0deg)" },
+        { transform: "rotate(-2deg)" },
+        { transform: "rotate(0)" }
+    ], {
+        duration: 300,
+        iterations: Infinity
+    });
+
+    //envelope.body.animate.apply(treme);
+
     //Adding Event Listeners
     envelope.body.addEventListener('mouseover', openEnvelope);
     //Make clear properites to stop function calls when needed
@@ -41,7 +54,7 @@
         console.log("Open");
 
         //Remove invalid Event Listeners and add proper ones
-        envelope.body.style.animation = "pause";
+        rockit.cancel();
         envelope.body.removeEventListener('mouseover', openEnvelope);
         envelope.body.addEventListener('mouseout', closeEnvelope);
 
@@ -56,16 +69,9 @@
             envelope.left.style.zIndex = 0;
             envelope.bottomRight.style.zIndex = 0;
 
-            if (envelope.state.size > 2.5) {
-                envelope.state.isEnvelopeOpen = true;
-                clearTimeout(openEnvelope.clear);
-            } else {
-                envelope.state.size += 0.05
+            clearTimeout(openEnvelope.clear);
+            sizeUp()
 
-                envelope.paper.style.transform = "scale(" + envelope.state.size + ")";
-                console.log("paper trans " + envelope.state.size);
-                openEnvelope.clear = setTimeout(openEnvelope, 10);
-            }
         } else {
             //Change the step increment of rotate to adjust smoothness 
             envelope.state.topRotation += 2;
@@ -75,6 +81,19 @@
         }
 
     };
+
+    function sizeUp() {
+        if (envelope.state.size > 2.5) {
+            envelope.state.isEnvelopeOpen = true;
+            clearTimeout(openEnvelope.clear);
+        } else {
+            envelope.state.size += 0.05
+
+            envelope.paper.style.transform = "scale(" + envelope.state.size + ")";
+            console.log("paper trans " + envelope.state.size);
+            openEnvelope.clear = setTimeout(sizeUp, 10);
+        }
+    }
 
     function closeEnvelope() {
         console.log("Close");
@@ -95,16 +114,8 @@
                 envelope.left.style.zIndex = 1;
                 envelope.bottomRight.style.zIndex = 1;
 
-                if (envelope.state.topRotation <= 0) {
-                    envelope.state.isEnvelopeOpen = false;
-                    envelope.body.style.animation = "wiggle 0.3s 0.2s infinite;"
-                    clearTimeout(closeEnvelope.clear);
-                } else {
-                    envelope.state.topRotation -= 2;
-                    //Apply the changes
-                    envelope.top.style.transform = "rotateX" + "(" + envelope.state.topRotation + "deg" + ")";
-                    closeEnvelope.clear = setTimeout(closeEnvelope, 10);
-                }
+                clearTimeout(closeEnvelope.clear);
+                InvertRotateX()
 
             } else {
                 //Change the step increment of rotate to adjust smoothness 
@@ -117,4 +128,17 @@
         }
     };
 
+    function InvertRotateX() {
+        if (envelope.state.topRotation <= 0) {
+            envelope.state.isEnvelopeOpen = false;
+            rockit.play()
+            envelope.body.style.animation = "wiggle 0.3s 0.2s infinite;"
+            clearTimeout(closeEnvelope.clear);
+        } else {
+            envelope.state.topRotation -= 2;
+            //Apply the changes
+            envelope.top.style.transform = "rotateX" + "(" + envelope.state.topRotation + "deg" + ")";
+            closeEnvelope.clear = setTimeout(InvertRotateX, 10);
+        }
+    }
 })();
