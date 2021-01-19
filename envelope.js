@@ -56,7 +56,7 @@
             envelope.left.style.zIndex = 0;
             envelope.bottomRight.style.zIndex = 0;
 
-            if (envelope.state.size > 3) {
+            if (envelope.state.size > 2.5) {
                 envelope.state.isEnvelopeOpen = true;
                 clearTimeout(openEnvelope.clear);
             } else {
