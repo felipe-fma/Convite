@@ -4,6 +4,24 @@ body {
     padding: 0px;
 }
 
+@keyframes wiggle {
+    0% {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(2deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-2deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
 .envelope {
     height: 300px;
     width: 400px;
@@ -17,6 +35,7 @@ body {
     cursor: pointer;
     transform-style: preserve-3d;
     perspective: 1000px;
+    animation: wiggle 0.3s 0.2s infinite;
 }
 
 .envelope .cover {

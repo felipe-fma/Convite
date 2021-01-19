@@ -41,6 +41,7 @@
         console.log("Open");
 
         //Remove invalid Event Listeners and add proper ones
+        envelope.body.style.animation = "pause";
         envelope.body.removeEventListener('mouseover', openEnvelope);
         envelope.body.addEventListener('mouseout', closeEnvelope);
 
@@ -96,6 +97,7 @@
 
                 if (envelope.state.topRotation <= 0) {
                     envelope.state.isEnvelopeOpen = false;
+                    envelope.body.style.animation = "wiggle 0.3s 0.2s infinite;"
                     clearTimeout(closeEnvelope.clear);
                 } else {
                     envelope.state.topRotation -= 2;
