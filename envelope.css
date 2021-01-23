@@ -4,30 +4,12 @@ body {
     padding: 0px;
 }
 
-@keyframes wiggle {
-    0% {
-        transform: rotate(0);
-    }
-    25% {
-        transform: rotate(2deg);
-    }
-    50% {
-        transform: rotate(0deg);
-    }
-    75% {
-        transform: rotate(-2deg);
-    }
-    100% {
-        transform: rotate(0);
-    }
-}
-
 .envelope {
     height: 300px;
     width: 400px;
     background-color: #ff8789;
     position: relative;
-    top: 20em;
+    top: 10em;
     margin-left: auto;
     margin-right: auto;
     border-bottom-left-radius: 10px;
@@ -47,15 +29,15 @@ body {
     border-left: 200px solid transparent;
     border-right: 200px solid transparent;
     border-bottom: 150px solid transparent;
-    border-top: 150px solid #ff8789;
+    border-top: 150px solid #57162f;
     transform-origin: top;
     z-index: 5;
 }
 
 .envelope .cover.bottom.right {
     border-left: 200px solid transparent;
-    border-right: 200px solid #ff393c;
-    border-bottom: 150px solid #ff393c;
+    border-right: 200px solid #421124;
+    border-bottom: 150px solid #421124;
     border-top: 150px solid transparent;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -63,7 +45,7 @@ body {
 }
 
 .envelope .cover.left {
-    border-left: 200px solid #ff5355;
+    border-left: 200px solid #491529;
     border-right: 200px solid transparent;
     border-bottom: 150px solid transparent;
     border-top: 150px solid transparent;
@@ -80,7 +62,6 @@ body {
     border-radius: 10px;
     box-sizing: border-box;
     padding: 10px;
-    z-index: 3;
 }
 
 .paper {
